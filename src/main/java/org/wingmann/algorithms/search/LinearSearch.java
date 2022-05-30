@@ -7,12 +7,12 @@ import java.util.List;
 /**
  * Linear search is the easiest search algorithm It works with sorted and unsorted arrays
  * (a binary search works only with sorted array).
- * This algorithm just compares all elements of an array to find a value
+ * This algorithm just compares all elements of an array to find a value.
  *
  * Worst-case performance O(n)
  * Best-case performance O(1)
- * Average performance O(n)
- * Worst-case space complexity
+ * Average performance O(n/2)
+ * Worst-case space complexity O(1) iterative
  */
 public class LinearSearch implements SearchAlgorithm {
     /**

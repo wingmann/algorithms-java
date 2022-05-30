@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Binary search is one of the most popular algorithms The algorithm finds the position of a
- * target value within a sorted array
+ * target value within a sorted array.
  *
  * Worst-case performance O(log n)
  * Best-case performance O(1)
@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class BinarySearch implements SearchAlgorithm {
     /**
-     * @param data list where the element should be found
-     * @param target element which should be found
-     * @param <T> is any comparable type
-     * @return first found index of the element
+     * @param data list where the element should be found.
+     * @param target element which should be found.
+     * @param <T> is any comparable type.
+     * @return first found index of the element.
      */
     @Override
     public <T extends Comparable<T>> int find(List<T> data, T target) {
@@ -26,13 +26,12 @@ public class BinarySearch implements SearchAlgorithm {
     }
 
     /**
-     * Implements the generic binary search algorithm
-     *
-     * @param data array to make the binary search
-     * @param target number you are looking for
-     * @param left The lower bound
-     * @param right The upper bound
-     * @return the location of the key
+     * Implements the generic binary search algorithm.
+     * @param data array to make the binary search.
+     * @param target number you are looking for.
+     * @param left The lower bound.
+     * @param right The upper bound.
+     * @return the location of the key.
      */
     private <T extends Comparable<T>> int search(List<T> data, T target, int left, int right) {
         if (right < left) {
