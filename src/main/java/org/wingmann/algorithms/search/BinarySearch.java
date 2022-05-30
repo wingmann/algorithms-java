@@ -1,11 +1,12 @@
 package org.wingmann.algorithms.search;
 
 import org.wingmann.algorithms.utilities.searches.SearchAlgorithm;
+
 import java.util.List;
 
 /**
- * Binary search is one of the most popular algorithms The algorithm finds the
- * position of a target value within a sorted array
+ * Binary search is one of the most popular algorithms The algorithm finds the position of a
+ * target value within a sorted array
  *
  * Worst-case performance O(log n)
  * Best-case performance O(1)

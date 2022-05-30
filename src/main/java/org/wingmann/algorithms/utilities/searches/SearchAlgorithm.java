@@ -7,8 +7,8 @@ import java.util.List;
  */
 public interface SearchAlgorithm {
     /**
-     * @param target is an element which should be found
-     * @param data is a list where the element should be found
+     * @param data list where the element should be found
+     * @param target element which should be found
      * @param <T> Comparable type
      * @return first found index of the element
      */
