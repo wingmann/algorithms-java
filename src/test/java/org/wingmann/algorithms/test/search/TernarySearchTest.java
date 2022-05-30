@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.wingmann.algorithms.search.BinarySearch;
+import org.wingmann.algorithms.search.TernarySearch;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BinarySearchTest {
+public class TernarySearchTest {
     @Test
     void correct() {
         Random r = ThreadLocalRandom.current();
@@ -29,7 +30,7 @@ public class BinarySearchTest {
         // The element that should be found
         var shouldBeFound = integers.get(r.nextInt(size - 1));
 
-        var atIndex = new BinarySearch().find(integers, shouldBeFound);
+        var atIndex = new TernarySearch().find(integers, shouldBeFound);
         var toCheck = Arrays.binarySearch(integers.toArray(), shouldBeFound);
 
         Assertions.assertEquals(toCheck, atIndex);
