@@ -1,8 +1,6 @@
-package org.wingmann.algorithms.search;
+package org.wingmann.search;
 
-import org.wingmann.algorithms.utilities.searches.SearchAlgorithm;
-
-import java.util.List;
+import org.wingmann.utilities.searches.SearchAlgorithm;
 
 /**
  * Ternary search algorithm is a technique in computer science for finding the
@@ -17,13 +15,14 @@ import java.util.List;
  */
 public class TernarySearch implements SearchAlgorithm {
     /**
-     * @param data list where the element should be found
-     * @param target element which should be found
-     * @return first found index of the element
+     * @param data list where the element should be found.
+     * @param target element which should be found.
+     * @return first found index of the element.
      */
     @Override
-    public <T extends Comparable<T>> int find(List<T> data, T target) {
-        return search(data, target, 0, data.size() - 1);
+    public <T extends Comparable<T>> int find(T[] data, T target) {
+        final var length = data.length;
+        return (length == 0) ? -1 : search(data, target, 0, length - 1);
     }
 
     /**
@@ -33,27 +32,19 @@ public class TernarySearch implements SearchAlgorithm {
      * @param end ending index till which we will search.
      * @return index of the element if it is found, otherwise it returns -1.
      */
-    private <T extends Comparable<T>> int search(List<T> data, T target, int start, int end) {
-        if (start > end) {
-            return -1;
-        }
-        // First boundary: add 1/3 of length to start.
+    private <T extends Comparable<T>> int search(T[] data, T target, int start, int end) {
         var first_median = start + (end - start) / 3;
-        // Second boundary: add 2/3 of length to start.
         var second_median = start + 2 * (end - start) / 3;
 
-        if (target.compareTo(data.get(first_median)) == 0) {
+        if (target.compareTo(data[first_median]) == 0) {
             return first_median;
-        } else if (target.compareTo(data.get(second_median)) == 0) {
+        } else if (target.compareTo(data[second_median]) == 0) {
             return second_median;
-        } else if (target.compareTo(data.get(first_median)) < 0) {
-            // Search the first (1/3) rd part of the array.
+        } else if (target.compareTo(data[first_median]) < 0) {
             return search(data, target, start, --first_median);
-        } else if (target.compareTo(data.get(second_median)) > 0) {
-            // Search 3rd (1/3)rd part of the array.
+        } else if (target.compareTo(data[second_median]) > 0) {
             return search(data, target, ++second_median, end);
         } else {
-            // Search middle (1/3)rd part of the array.
             return search(data, target, first_median, second_median);
         }
     }

@@ -1,8 +1,6 @@
-package org.wingmann.algorithms.search;
+package org.wingmann.search;
 
-import org.wingmann.algorithms.utilities.searches.SearchAlgorithm;
-
-import java.util.List;
+import org.wingmann.utilities.searches.SearchAlgorithm;
 
 /**
  * Binary search is one of the most popular algorithms The algorithm finds the position of a
@@ -21,8 +19,9 @@ public class BinarySearch implements SearchAlgorithm {
      * @return first found index of the element.
      */
     @Override
-    public <T extends Comparable<T>> int find(List<T> data, T target) {
-        return search(data, target, 0, data.size());
+    public <T extends Comparable<T>> int find(T[] data, T target) {
+        final var length = data.length;
+        return (length == 0) ? -1 : search(data, target, 0, length);
     }
 
     /**
@@ -33,12 +32,12 @@ public class BinarySearch implements SearchAlgorithm {
      * @param right The upper bound.
      * @return the location of the key.
      */
-    private <T extends Comparable<T>> int search(List<T> data, T target, int left, int right) {
+    private <T extends Comparable<T>> int search(T[] data, T target, int left, int right) {
         if (right < left) {
             return -1;
         }
         int median = (left + right) >>> 1;
-        int compare = target.compareTo(data.get(median));
+        int compare = target.compareTo(data[median]);
 
         if (compare == 0) {
             return median;

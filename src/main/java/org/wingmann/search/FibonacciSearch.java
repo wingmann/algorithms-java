@@ -1,8 +1,6 @@
-package org.wingmann.algorithms.search;
+package org.wingmann.search;
 
-import org.wingmann.algorithms.utilities.searches.SearchAlgorithm;
-
-import java.util.List;
+import org.wingmann.utilities.searches.SearchAlgorithm;
 
 /**
  * Fibonacci Search is a popular algorithm which finds the position of a target value
@@ -13,21 +11,23 @@ import java.util.List;
  */
 public class FibonacciSearch implements SearchAlgorithm {
     /**
-     * @param data   list where the element should be found
-     * @param target element which should be found
-     * @return first found index of the element
+     * @param data   list where the element should be found.
+     * @param target element which should be found.
+     * @return first found index of the element.
      */
     @Override
-    public <T extends Comparable<T>> int find(List<T> data, T target) {
-        if (data.isEmpty()) {
+    public <T extends Comparable<T>> int find(T[] data, T target) {
+        final var length = data.length;
+
+        if (length == 0) {
             return -1;
         }
+
         var fibMinusOne = 1;
         var fibMinusTwo = 0;
         var fibNumber = fibMinusOne + fibMinusTwo;
-        var size = data.size();
 
-        while (fibNumber < size) {
+        while (fibNumber < length) {
             fibMinusTwo = fibMinusOne;
             fibMinusOne = fibNumber;
             fibNumber = fibMinusTwo + fibMinusOne;
@@ -35,14 +35,14 @@ public class FibonacciSearch implements SearchAlgorithm {
         var offset = -1;
 
         while (fibNumber > 1) {
-            int i = Math.min(offset + fibMinusTwo, size - 1);
+            int i = Math.min(offset + fibMinusTwo, length - 1);
 
-            if (data.get(i).compareTo(target) < 0) {
+            if (data[i].compareTo(target) < 0) {
                 fibNumber = fibMinusOne;
                 fibMinusOne = fibMinusTwo;
                 fibMinusTwo = fibNumber - fibMinusOne;
                 offset = i;
-            } else if (data.get(i).compareTo(target) > 0) {
+            } else if (data[i].compareTo(target) > 0) {
                 fibNumber = fibMinusTwo;
                 fibMinusOne = fibMinusOne - fibMinusTwo;
                 fibMinusTwo = fibNumber - fibMinusOne;
@@ -51,7 +51,7 @@ public class FibonacciSearch implements SearchAlgorithm {
             }
         }
 
-        if (fibMinusOne == 1 && data.get(offset + 1) == target) {
+        if (fibMinusOne == 1 && data[offset + 1] == target) {
             return offset + 1;
         }
         return -1;
