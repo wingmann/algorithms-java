@@ -3,15 +3,12 @@ package org.wingmann.search;
 import org.wingmann.utilities.search.SearchAlgorithm;
 
 /**
- * Ternary search algorithm.
+ * Implements ternary search algorithm.
+ * @see <a href="https://en.wikipedia.org/wiki/Ternary_search">Wikipedia</a>
  */
-public class TernarySearch implements SearchAlgorithm {
+public class TernarySearchRecursive implements SearchAlgorithm {
     /**
-     * Finds the first occurrence of the target element.
-     *
-     * @param data an array where the element should be found.
-     * @param target an element which should be found.
-     * @return Index of the first occurrence of the target element, or -1 if it is not found.
+     * {@inheritDoc}
      */
     @Override
     public <T extends Comparable<T>> int find(T[] data, T target) {
@@ -19,16 +16,6 @@ public class TernarySearch implements SearchAlgorithm {
         return (length != 0) ? find(data, target, 0, length) : -1;
     }
 
-    /**
-     * Finds the first occurrence of the target element.
-     *
-     * @param data an array where the element should be found.
-     * @param target an element which should be found.
-     * @param left lower bound.
-     * @param right upper bound.
-     * @return Index of the first occurrence of the target element, or -1 if it is not found.
-     * @param <T> comparable type.
-     */
     private <T extends Comparable<T>> int find(T[] data, T target, int left, int right) {
         if (right < left) {
             return -1;

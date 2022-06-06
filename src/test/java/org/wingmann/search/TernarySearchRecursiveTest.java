@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
-public class TernarySearchTest {
+public class TernarySearchRecursiveTest {
     @Test
     void correct() {
         var random = ThreadLocalRandom.current();
@@ -23,7 +23,7 @@ public class TernarySearchTest {
 
         var target = data[random.nextInt(size - 1)];
 
-        var atIndex = new TernarySearch().find(data, target);
+        var atIndex = new TernarySearchRecursive().find(data, target);
         var toCheck = Arrays.binarySearch(data, target);
 
         Assertions.assertEquals(atIndex, toCheck);
