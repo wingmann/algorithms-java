@@ -1,6 +1,6 @@
-package org.wingmann.search;
+package org.wingmann.algorithms.search;
 
-import org.wingmann.utilities.search.SearchAlgorithm;
+import org.wingmann.algorithms.utilities.search.SearchAlgorithm;
 
 /**
  * Implements fibonacci search algorithm.
@@ -8,7 +8,10 @@ import org.wingmann.utilities.search.SearchAlgorithm;
  */
 public class FibonacciSearch implements SearchAlgorithm {
     /**
-     * {@inheritDoc}
+     * Finds the first occurrence of the target element.
+     * @param data   an array where the element should be found.
+     * @param target an element which should be found.
+     * @return index of the first occurrence of the target element, or -1 if it is not found.
      */
     @Override
     public <T extends Comparable<T>> int find(T[] data, T target) {

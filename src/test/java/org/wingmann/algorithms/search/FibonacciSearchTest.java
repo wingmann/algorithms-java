@@ -1,4 +1,4 @@
-package org.wingmann.search;
+package org.wingmann.algorithms.search;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
